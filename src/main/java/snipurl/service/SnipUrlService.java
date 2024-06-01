@@ -1,10 +1,11 @@
 package snipurl.service;
 
 import snipurl.dto.UrlDto;
+import snipurl.dto.UrlResponseDto;
 import snipurl.entity.Url;
 
-public interface UrlService {
-    Url generateShortLink(UrlDto urlDto);
+public interface SnipUrlService {
+    UrlResponseDto generateShortLink(UrlDto urlDto);
 
     Url persistShortLink(Url url);
 

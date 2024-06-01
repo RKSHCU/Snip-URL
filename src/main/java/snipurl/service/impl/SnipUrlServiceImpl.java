@@ -3,39 +3,44 @@ package snipurl.service.impl;
 import com.google.common.hash.Hashing;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import snipurl.dto.UrlDto;
+import snipurl.dto.UrlResponseDto;
 import snipurl.entity.Url;
 import snipurl.repository.UrlRepository;
-import snipurl.service.UrlService;
+import snipurl.service.SnipUrlService;
+import snipurl.utils.SnipUrlMapper;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import static snipurl.utils.Constants.APPLICATION_URL;
+
 @Service
 @RequiredArgsConstructor
-public class UrlServiceImpl implements UrlService {
+public class SnipUrlServiceImpl implements SnipUrlService {
 
     private final UrlRepository urlRepository;
 
+    @Value(APPLICATION_URL)
+    private String applicationUrl;
+
     @Override
-    public Url generateShortLink(UrlDto urlDto) {
+    public UrlResponseDto generateShortLink(UrlDto urlDto) {
 
         Url urlToPersist = null;
 
         if (StringUtils.isNotEmpty(urlDto.getUrl())) {
             String encodedUrl = encodeUrl(urlDto.getUrl());
 
-            urlToPersist = new Url();
-            urlToPersist.setCreationDate(LocalDateTime.now());
-            urlToPersist.setOriginalUrl(urlDto.getUrl());
-            urlToPersist.setShortLink(encodedUrl);
+            urlToPersist = SnipUrlMapper.MAPPER.mapToUrl(urlDto, encodedUrl);
             urlToPersist.setExpirationDate(getExpirationDate(urlDto.getExpirationDate(), urlToPersist.getCreationDate()));
             Url urlToReturn = persistShortLink(urlToPersist);
         }
 
-        return urlToPersist;
+        return SnipUrlMapper.MAPPER.mapToUrlResponseDto(urlToPersist, applicationUrl);
     }
 
     @Override
