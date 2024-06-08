@@ -6,14 +6,20 @@ public class Constants {
     public static final String REDIRECT_SHORT_LINK_PATH = "/{shortLink}";
 
     // Error Constants
-    public static final String INVALID_URL = "Invalid URL";
-    public static final String URL_DOES_NOT_EXIST = "URL does not exist or it might have expired!";
     public static final String EXPIRED_URL = "URL Expired. Please generate a fresh one.!";
     public static final String STATUS_CODE_400 = "400";
-    public static final String STATUS_CODE_200 = "200";
+    public static final String STATUS_CODE_404 = "404";
+    public static final String NOT_FOUND_ERROR_MESSAGE = "No %s found for value %s";
 
-    //Environment Variables
+    // Error Codes
+    public static final String NOT_FOUND = "NOT_FOUND";
+    public static final String INVALID_INPUT = "INVALID_INPUT";
+
+    // Environment Variables
     public static final String APPLICATION_URL = "${application.url}";
+
+    // Other Constants
+    public static final String SHORT_LINK = "Short-Link";
 
     private Constants() {
     }
