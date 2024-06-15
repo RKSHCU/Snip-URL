@@ -3,7 +3,7 @@ package snipurl.utils;
 public class TestConstants {
 
     public static final String TEST_URL = "https://github.com/iRajeev-dev/Snip-URL";
-    public static final String TEST_SHORT_URL = "gk";
+    public static final String TEST_SHORT_URL = "beb44e41";
 
 
     // Constants Related to Environment Variables
