@@ -2,7 +2,7 @@ package snipurl.utils;
 
 public class Constants {
     // Controller Path Constants
-    public static final String GENERATE_SHORT_LINK_PATH = "api/v1/generateShortLink";
+    public static final String GENERATE_SHORT_LINK_PATH = "/api/v1/generateShortLink";
     public static final String REDIRECT_SHORT_LINK_PATH = "/{shortLink}";
 
     // Error Constants

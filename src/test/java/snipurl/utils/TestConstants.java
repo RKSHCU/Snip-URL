@@ -4,6 +4,7 @@ public class TestConstants {
 
     public static final String TEST_URL = "https://github.com/iRajeev-dev/Snip-URL";
     public static final String TEST_SHORT_URL = "beb44e41";
+    public static final String SLASH = "/";
 
 
     // Constants Related to Environment Variables

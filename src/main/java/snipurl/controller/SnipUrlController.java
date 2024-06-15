@@ -2,6 +2,7 @@ package snipurl.controller;
 
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import snipurl.dto.UrlDto;
@@ -30,7 +31,7 @@ public class SnipUrlController {
      */
     @PostMapping(GENERATE_SHORT_LINK_PATH)
     public ResponseEntity<?> generateShortLink(@RequestBody UrlDto urlDto) {
-        return ResponseEntity.ok(snipUrlService.generateShortLink(urlDto));
+        return new ResponseEntity<>(snipUrlService.generateShortLink(urlDto), HttpStatus.CREATED);
     }
 
     /**
