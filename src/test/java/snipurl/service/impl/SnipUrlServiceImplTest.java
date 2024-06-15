@@ -47,7 +47,6 @@ class SnipUrlServiceImplTest {
         persistedUrl.setCreationDate(url.getCreationDate());
         persistedUrl.setExpirationDate(url.getExpirationDate());
         persistedUrl.setShortLink(url.getShortLink());
-        persistedUrl.setId(1);
 
         urlDto = new UrlDto();
         urlDto.setUrl(TEST_URL);
