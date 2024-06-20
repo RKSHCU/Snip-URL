@@ -20,6 +20,9 @@ public class Constants {
 
     // Other Constants
     public static final String SHORT_LINK = "Short-Link";
+    public static final String INVOKED_IN_CONTROLLER = "{} is invoked in controller";
+    public static final String INVOKED_IN_SERVICE = "{} is invoked in service";
+    public static final String SIGNATURE_NAME = "signature name";
 
     private Constants() {
     }
